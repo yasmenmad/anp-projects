@@ -1,163 +1,110 @@
+# 🪪 ANP EnhancedBadgeApp — Intelligent Port Access Control & Analytics
 
-ANP PROJECT
----
+[![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Data-Pandas-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![GUI](https://img.shields.io/badge/GUI-Tkinter%20%2F%20ttk-orange)](https://docs.python.org/3/library/tkinter.html)
+[![Institution](https://img.shields.io/badge/Partner-Agence%20Nationale%20des%20Ports%20(ANP)-00529b)](https://www.anp.org.ma/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# 🪪 EnhancedBadgeApp
-
-**EnhancedBadgeApp** is a Python desktop application built with **Tkinter** and **pandas** that allows users to manage and analyze badge data directly from an **Excel file**.
-It combines a simple **graphical interface**, **data processing**, and an integrated **AI assistant** to provide smart insights and statistics.
-
----
-
-##  Project Overview
-
-The app helps users:
-
-* Load, view, and manage badge data from an Excel sheet.
-* Search and filter records interactively.
-* Visualize statistics and charts using **matplotlib**.
-* Interact with a built-in **AI assistant** that answers natural language questions about the data (e.g., “Which employee has the highest number of badges?”).
-
-It’s a complete project that bridges **data management**, **automation**, and **AI-powered insights** — all within a friendly graphical interface.
+**EnhancedBadgeApp** is an operational desktop data analytics application developed in partnership with the **Agence Nationale des Ports (ANP - National Ports Agency of Morocco)**. The platform streamlines port security management by ingesting access badge registries from structured Excel files, providing fuzzy search, automated activity metric dashboards, and a natural language query assistant for access control personnel.
 
 ---
 
-##  Architecture Overview
+## 🏛️ System Architecture
 
 ```
-[User Interface: Tkinter]
-          ↓
-[Application Logic: Python Classes & Functions]
-          ↓
-[Data Layer: pandas DataFrame]
-          ↓
-[Excel File (.xlsx)]
-          ↘
- [AI Module – Virtual Assistant + Statistics Engine]
-```
-
----
-
-##  Main Features
-
- **Excel Data Integration**
-Easily load badge data stored in Excel files. The app uses pandas for fast data handling and filtering.
-
- **Interactive Search**
-Find specific employees or badge records instantly using flexible search with fuzzy matching.
-
- **Statistics Dashboard**
-Visualize data through charts and metrics powered by matplotlib.
-
-**AI Assistant Module**
-Ask natural-language questions about your dataset — the assistant analyzes and summarizes relevant statistics.
-
- **User-Friendly Interface**
-Modern Tkinter UI using `ttk` widgets and `scrolledtext`, designed for clarity and ease of use.
-
----
-
-##  Technologies Used
-
-| Category        | Libraries / Tools                                     |
-| --------------- | ----------------------------------------------------- |
-| GUI             | `tkinter`, `ttk`, `scrolledtext`, `messagebox`        |
-| Data Processing | `pandas`, `datetime`, `pytz`                          |
-| AI Logic        | `difflib` (for fuzzy matching, natural query parsing) |
-| Visualization   | `matplotlib`                                          |
-| File I/O        | `openpyxl` (Excel data)                               |
-
----
-
-## 🪜 How It Works
-
-1. **Load Data** → Select an Excel file (`.xlsx`) to import badge data into the interface.
-2. **Explore & Search** → Filter, view, and update records interactively.
-3. **Ask Questions** → Use the AI module to request statistics or summaries.
-4. **Visualize** → Generate plots showing distributions and key performance indicators.
-
----
-
-##  Example Questions for the AI Module
-
-* “Show me the total number of badges.”
-* “Who has the most badges?”
-* “Give me the average number of badges per user.”
-* “How many badges were created this month?”
-
----
-
-##  Project Structure
-
-```
-EnhancedBadgeApp/
-│
-├── main.py                # Main Tkinter application
-├── assistant_module.py     # AI logic and natural language handling
-├── data/                   # Excel files (input/output)
-├── screenshots/             # UI and feature previews
-├── requirements.txt         # Python dependencies
-└── README.md                # Documentation
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │                      User Interface Layer (Tkinter)                    │
+ │    • Dynamic ttk Data Table (Treeview) with Custom Color Palette       │
+ │    • Multi-criteria Filter Bar & Interactive Fuzzy Query Input         │
+ │    • Integrated Matplotlib Embedded Figure Canvas                     │
+ └───────────────────────────────────┬────────────────────────────────────┘
+                                     │
+                                     ▼
+ ┌────────────────────────────────────────────────────────────────────────┐
+ │                      Business & Processing Logic                       │
+ │    • DateTime Normalization & Timezone Alignment (pytz / UTC+1)        │
+ │    • Dynamic Status Computations (Active, Expired, Revoked)            │
+ │    • Statistical Aggregations (Departmental, Port-Terminal Breakdown)  │
+ └─────────────────┬──────────────────────────────────┬───────────────────┘
+                   │                                  │
+                   ▼                                  ▼
+ ┌───────────────────────────────────┐  ┌─────────────────────────────────┐
+ │       Pandas Data Engine Layer    │  │   Natural Language Assistant    │
+ │   • openpyxl Ingestion & Schema   │  │   • difflib Heuristic Matcher   │
+ │   • In-Memory DataFrame Indexing  │  │   • Keyword Parsing & Stats     │
+ └───────────────────────────────────┘  └─────────────────────────────────┘
 ```
 
 ---
 
-##  Installation
+## ✨ Key Capabilities
 
-1. **Clone this repository:**
+1. **Automated Excel Registry Ingestion:**
+   - Cleans and standardizes column formats across large port badge datasets.
+   - Robust datetime parsing for activation, expiration, and token modification timestamps.
 
-   ```bash
-   git clone https://github.com/yourusername/EnhancedBadgeApp.git
-   cd EnhancedBadgeApp
-   ```
+2. **Fuzzy Search & Sub-Second Querying:**
+   - Employs similarity algorithms (`difflib.get_close_matches`) to tolerate typos in employee names, CINs, or badge serial numbers.
 
-2. **Install dependencies:**
+3. **Embedded Statistical Visualizations:**
+   - Real-time Matplotlib charts rendered directly inside the Tkinter UI without external browser windows.
+   - Breakdown of badge statuses, issuance trends over time, and terminal allocation.
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the app:**
-
-   ```bash
-   python main.py
-   ```
+4. **Natural Language Query Assistant:**
+   - Access officers can query dataset metrics using conversational queries:
+     - *"How many active badges are currently registered?"*
+     - *"Which department holds the highest number of badges?"*
+     - *"What is the distribution of badges issued this month?"*
 
 ---
 
-##  Example Dependencies
+## 🛠️ Installation & Setup
 
-```txt
-pandas
-matplotlib
-openpyxl
-pytz
+### Prerequisites
+- Python 3.9+
+- Tkinter (included with standard Python installers on Windows and macOS; on Linux install via `sudo apt-get install python3-tk`)
+
+### Steps
+```bash
+# 1. Clone the repository
+git clone https://github.com/yasmenmad/anp-projects.git
+cd anp-projects
+
+# 2. (Optional) Initialize a virtual environment
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+# 3. Install required packages
+pip install -r requirements.txt
+
+# 4. Launch the application
+python main.py
 ```
 
-Tkinter is built into Python by default (no installation needed).
+---
+
+## 📂 Project Structure
+
+```
+anp-projects/
+├── anpp.py             # Primary application source
+├── main.py             # Application entrypoint
+├── requirements.txt    # Pinned Python package dependencies
+├── .gitignore          # Repository ignore rules
+└── README.md           # Engineering documentation
+```
 
 ---
 
+## 👩‍💻 Author & Institutional Attribution
 
-
-##  Future Improvements
-
-*  Connect to a real database instead of Excel.
-*  Add export options (PDF, CSV).
-*  Implement voice interaction for the AI assistant.
-*  Dark/light theme toggle for Tkinter UI.
-
----
-
-##  Author
-
-**Yasmine Daoudi**
-*Engineering Student in Computer Science & Data Science*
-Université Ibn Tofail — Kenitra, Morocco
-
----
-
-
-
----
-
+**Yasmine Daoudi**  
+*Computer Science & Software Engineering Student*  
+Université Ibn Tofail — Kénitra, Morocco  
+Partnership / Practical Training: **Agence Nationale des Ports (ANP)**  
+- LinkedIn: [linkedin.com/in/yasmine-daoudi-473260340](https://www.linkedin.com/in/yasmine-daoudi-473260340)
+- Email: [yasmineedaoudii@gmail.com](mailto:yasmineedaoudii@gmail.com)
