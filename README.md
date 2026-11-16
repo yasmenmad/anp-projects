@@ -1,4 +1,4 @@
-# 🪪 ANP EnhancedBadgeApp — Intelligent Port Access Control & Analytics
+# ANP EnhancedBadgeApp — Intelligent Port Access Control & Analytics
 
 [![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/Data-Pandas-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
@@ -10,7 +10,7 @@
 
 ---
 
-## 🏛️ System Architecture
+## ️ System Architecture
 
 ```
  ┌────────────────────────────────────────────────────────────────────────┐
@@ -38,7 +38,7 @@
 
 ---
 
-## ✨ Key Capabilities
+## Key Capabilities
 
 1. **Automated Excel Registry Ingestion:**
    - Cleans and standardizes column formats across large port badge datasets.
@@ -59,7 +59,7 @@
 
 ---
 
-## 🛠️ Installation & Setup
+## ️ Installation & Setup
 
 ### Prerequisites
 - Python 3.9+
@@ -87,7 +87,7 @@ python main.py
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 anp-projects/
@@ -100,7 +100,7 @@ anp-projects/
 
 ---
 
-## 👩‍💻 Author & Institutional Attribution
+## ‍ Author & Institutional Attribution
 
 **Yasmine Daoudi**  
 *Computer Science & Software Engineering Student*  
